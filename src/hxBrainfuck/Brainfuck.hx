@@ -14,7 +14,7 @@ class Brainfuck
         instance = this;
     }
 
-    public function interp(code:String, ?verbose = false):Dynamic
+    public function interp(code:String, ?input = false, ?verbose = false):Dynamic
     {
         if (verbose) trace("Interpreting code: " + code);
 
@@ -38,12 +38,7 @@ class Brainfuck
             }
         }
 
-        var input:String = "";
-
-        if (useInput)
-        {
-            input = BFHelpers.input("INPUT: ");
-        }
+        if (verbose) trace("Using input..." + (useInput ? " Yes" : " No"));
 
         var inputs:Int = -1;
         var output:String = "";
